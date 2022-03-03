@@ -1,0 +1,48 @@
+/* Color palattes */
+:root {
+    --dark_blue: #22577A;
+    --blue: #38A3A5;
+    --light_blue: #57CC99;
+    --green: #2d6a4f;
+    --light_green: #74c69d;
+    --dark_green: #081c15;
+  }
+
+/* Universal declarations */
+
+/* Footer */
+.background_footer{
+    margin-top: 150px;
+    background-color: var(--dark_blue);
+    color: white;
+}
+
+.btn_dark_blue{
+    background-color: var(--dark_blue);
+    color: black;
+}
+
+.btn_blue{
+    background-color: var(--blue);
+}
+
+.btn_light_blue{
+    background-color: var(--light_blue);
+}
+
+.btn_green{
+    background-color: var(--green);
+}
+
+.btn_dark_green{
+    background-color: var(--dark_green);
+}
+
+
+.temp_fixxer{
+    height: 100vh;
+}
+
+.cursor_pointer{
+    cursor: pointer;
+}

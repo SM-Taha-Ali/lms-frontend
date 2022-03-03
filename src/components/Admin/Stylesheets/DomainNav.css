@@ -1,0 +1,65 @@
+/* .domain_nav {
+  list-style: none;
+  align-items: center;
+  display: inline-block;
+} */
+
+.sidenav {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: absolute;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  bottom: 0;
+  /* Stay at the top */
+  left: 0;
+  background-color: #02141d;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+  color: white;
+  opacity: 1;
+}
+
+.general_nav_link {
+  color: black;
+  text-decoration: none;
+}
+
+.general_nav_link:hover {
+  color: #38A3A5;
+}
+
+.text_blue{
+  color: #38A3A5;
+}
