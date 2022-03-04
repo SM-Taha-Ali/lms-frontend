@@ -20,9 +20,9 @@ const Header = () => {
         window.location.reload()
     }
 
-    const local_name = JSON.parse(localStorage.getItem('user_details'));
+    // const local_name = JSON.parse(localStorage.getItem('user_details'));
 
-    const userName = `${local_name.username}`
+    // const userName = `${local_name.username}`
 
     return (
         <div>
@@ -73,7 +73,7 @@ const Header = () => {
                                         <i className="fas fa-user"></i>
                                     </div>
                                     <div className="dropdown pe-2 ps-1 py-2 Border-right">
-                                        <span className="dropbtn mx-2">{userName}</span>
+                                        <span className="dropbtn mx-2">lol</span>
                                         <div className="dropdown-content Z-INDEX">
                                             <a href="#" className='dropdown_link' onClick={logout}><i className="far fa-sign-out mx-1"></i> Logout</a>
                                         </div>
