@@ -1,0 +1,153 @@
+/* Color palattes */
+:root {
+    --dark_blue: #22577A;
+    --blue: #38A3A5;
+    --light_blue: #57CC99;
+    --green: #2d6a4f;
+    --light_green: #74c69d;
+    --dark_green: #081c15;
+  }
+
+/* Universal declarations */
+
+/* Footer */
+.background_footer{
+    margin-top: 150px;
+    background-color: var(--dark_blue);
+    color: white;
+}
+
+.btn_dark_blue{
+    background-color: var(--dark_blue);
+    color: black;
+}
+
+.btn_blue{
+    background-color: var(--blue);
+}
+
+.btn_light_blue{
+    background-color: var(--light_blue);
+}
+
+.btn_green{
+    background-color: var(--green);
+}
+
+.btn_dark_green{
+    background-color: var(--dark_green);
+}
+
+
+.temp_fixxer{
+    height: 100vh;
+}
+
+.cursor_pointer{
+    cursor: pointer;
+}
+
+.background_blue{
+    background-color: var(--blue);
+}
+
+
+/* LOGIN PAGE CSS */
+
+.login-card-wrapper{
+    position: relative;
+    height: 100vh;
+}
+
+.login-card{
+    width: 30%;
+    padding: 35px;
+    border-radius: 10px;
+    border: 1px solid var(--blue);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img-wrapper{
+    display: block;
+    text-align: center;
+}
+
+.login-img{
+    width: 100px;
+}
+
+.forgot_link{
+    color: var(--dark_blue);
+    cursor: pointer;
+}
+
+.forgot_link:hover{
+    text-decoration: underline;
+}
+
+.login_footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+/* NAVBAR */
+
+.header-login-btn{
+    background-color: var(--blue);
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+
+.dropbtn {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    font-size: 16px;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dark_green);
+    min-width: 110px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    top: 105%;
+    z-index: 1;
+    right: 0px;
+    border-radius: 5px;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+  }
+  
+  .dropdown:hover .dropdown-content {display: block;}
+
+  .dropdown-content a:hover{
+      color: black;
+  }
+
+  .dropdown_link:hover{
+      color: white !important;
+  }

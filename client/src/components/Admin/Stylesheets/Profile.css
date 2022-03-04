@@ -1,0 +1,13 @@
+.profile_card{
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #38A3A5;
+}
+
+.profile_img_container img{
+    width: 125px;
+}
+
+.search_box{
+    width: 300px;
+}
