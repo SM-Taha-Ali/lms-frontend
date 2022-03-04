@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const dgroupController = require('../../../controllers/dgroup.js');
+const dgroupController = require('../../../controllers/domain/student/dgroup.js');
 
 
 router.post(

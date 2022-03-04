@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const dsectionController = require('../../../controllers/dsection.js');
+const dsectionController = require('../../../controllers/domain/student/dsection.js');
 
 
 router.post(

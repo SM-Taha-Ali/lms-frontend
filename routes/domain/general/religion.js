@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const religionController = require('../../../controllers/religion');
+const religionController = require('../../../controllers/domain/general/religion');
 
 
 router.post(

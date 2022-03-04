@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const feedomainController = require('../../../controllers/feedomain.js');
+const feedomainController = require('../../../controllers/domain/fee/feedomain.js');
 
 
 router.post(

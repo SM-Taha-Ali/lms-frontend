@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const dclassController = require('../../../controllers/dclass.js');
+const dclassController = require('../../../controllers/domain/student/dclass.js');
 
 
 router.post(

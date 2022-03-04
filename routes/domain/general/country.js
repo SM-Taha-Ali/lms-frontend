@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const countryController = require('../../../controllers/country');
+const countryController = require('../../../controllers/domain/general/country');
 
 
 router.post(

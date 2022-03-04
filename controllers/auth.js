@@ -12,6 +12,12 @@ async function registerStudent(req, res) {
     // Check whether the user with this email already exists
     let success = false
     try {
+        const errors = validationResult(req);
+        console.log(errors)
+        // Checking if validations are fulfilled
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ success, errors: errors.array() });
+        }
         let user = await User.findOne({ username: req.body.username });
         if (user) {
             return res.status(400).json({ success, error: "Sorry student already exists." })
@@ -92,6 +98,12 @@ async function registerEmployee(req, res) {
     // Check whether the user with this email already exists
     let success = false
     try {
+        const errors = validationResult(req);
+        console.log(errors)
+        // Checking if validations are fulfilled
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ success, errors: errors.array() });
+        }
         let user = await User.findOne({ username: req.body.username });
         if (user) {
             return res.status(400).json({ success, error: "Sorry employee already exists." })
@@ -154,11 +166,10 @@ async function loginAuth(req, res) {
         if (!user) {
             return res.status(400).json({ success, error: "Invalid Username or Password" })
         }
-        const passwordCompare = await bcrypt.compare(password, user.password);
-        if (!passwordCompare) {
+        let pwd = await User.findOne({ password });
+        if (!pwd) {
             return res.status(400).json({ success, error: "Invalid Username or Password" })
         }
-
         // Sending the user object as a response
         const data = {
             user: {
@@ -179,6 +190,18 @@ async function getUserStudent(req, res) {
     try {
         var userID = req.body.std_id;
         const user = await User.find({ student: userID });
+        res.send(user);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).send("Internal server error")
+    }
+}
+
+async function getUser(req, res) {
+    try {
+        var userID = req.user.id;
+        const user = await User.findById(userID);
         res.send(user);
     }
     catch (error) {
@@ -245,5 +268,7 @@ module.exports = {
     getStudents,
     getEmployees,
     getUserEmployee,
-    getUserStudent
+    getUserStudent,
+    loginAuth,
+    getUser
 }
