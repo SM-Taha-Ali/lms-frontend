@@ -1,0 +1,70 @@
+:root {
+    --dark_blue: #22577A;
+    --blue: #38A3A5;
+    --light_blue: #57CC99;
+    --green: #2d6a4f;
+    --light_green: #74c69d;
+    --dark_green: #081c15;
+}
+
+.class_wrapper{
+    padding: 20px;
+}
+
+.icon_wrapper{
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+}
+
+.add_icon{
+    font-size: 56px;
+    color: var(--blue);
+}
+
+.add_card{
+    width: 250px;
+    height: 250px;
+    border: 1px solid var(--light_green);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.05);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.batch_card{
+    width: 250px;
+    height: 250px;
+    border: 1px solid var(--light_green);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.add_card:hover{
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.add_card:hover .add_icon{
+    color: var(--blue);
+}
+
+.fees_input_batch{
+    border: none;
+    outline: none;
+    padding: 2px 3px 2px 3px;
+    border: 1px solid var(--green);
+    border-radius: 5px;
+    width: 100%;
+}
+
+.btn_dark_blue{
+    background-color: var(--dark_blue);
+    color: black;
+}
+
+.confirm_btn:active{
+    background-color: #57CC99;
+}

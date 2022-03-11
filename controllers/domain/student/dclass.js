@@ -1,4 +1,4 @@
-const Dclass = require('../../../models/Dclass')
+const Dclass = require('../../../models/Domain/Student/Dclass')
 
 async function addDclass(req, res) {
     // Check whether the user with this email already exists

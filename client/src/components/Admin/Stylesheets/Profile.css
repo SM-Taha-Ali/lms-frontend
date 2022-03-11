@@ -1,13 +1,98 @@
+:root {
+    --dark_blue: #22577A;
+    --blue: #38A3A5;
+    --light_blue: #57CC99;
+    --green: #2d6a4f;
+    --light_green: #74c69d;
+    --dark_green: #081c15;
+}
+
+
 .profile_card{
     padding: 20px;
     border-radius: 10px;
     border: 1px solid #38A3A5;
+    cursor: pointer;
+}
+
+.profile_img{
+    width: 25%;
 }
 
 .profile_img_container img{
-    width: 125px;
+    width: 50%;
+}
+
+.profile_card_body{
+    padding: 20px 20px 10px 20px;
 }
 
 .search_box{
     width: 300px;
+}
+
+.profile_card_footer{
+    text-align: center;
+}
+
+.profile_desc_img{
+    width: 13%;
+}
+
+.profile_desc_img_wrapper{
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.border_test{
+    border: 1px solid red;
+}
+
+.detail_body{
+    padding: 25px;
+}
+
+.icon_border{
+    border: 2px solid var(--dark_blue);
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(88, 88, 88);
+    
+}
+
+.icon_border:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    color: var(--blue);
+}
+
+.icon_btn{
+    color: var(--dark_blue);
+    cursor: pointer;
+}
+
+.icon_btn:hover{
+    color: var(--blue);
+}
+
+.upload_photo{
+    display: block;
+    position: absolute;
+    color: #38A3A5;
+    font-size: 1.8vw;
+    bottom: 10px;
+    right: 45%;
+    cursor: pointer;
+}
+
+.btn_delete{
+    background-color: #ff4444;
+    color: rgb(214, 13, 13);
+    background-color: rgba(255, 0, 0, 0.397)
+}
+
+.btn_delete:hover{
+    color: white;
+    background-color: #ff4444;
 }

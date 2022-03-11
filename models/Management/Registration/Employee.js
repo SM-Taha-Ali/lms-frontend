@@ -105,6 +105,10 @@ const EmployeeSchema = new Schema({
         type: String,
         required: true
     },
+    district: {
+        type: String,
+        required: true
+    },
     city: {
         type: String,
         required: true
@@ -116,6 +120,12 @@ const EmployeeSchema = new Schema({
     postal_code: {
         type: String,
         required: true
+    },
+    subject: {
+        type: Array
+    },
+    class: {
+        type: Array
     }
 
 });

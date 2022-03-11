@@ -1,4 +1,4 @@
-const Dsection = require('../../../models/Dsection')
+const Dsection = require('../../../models/Domain/Student/Dsection')
 
 async function addDsection(req, res) {
     // Check whether the user with this email already exists

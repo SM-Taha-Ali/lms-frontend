@@ -14,20 +14,15 @@ const Domain = () => {
     document.getElementById("main").style.marginLeft = "0";
   }
 
-  const openNav = () => {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-  }
-
 
   return (
     <div className='position-relative'>
       <div id="mySidenav" className="sidenav">
         <span href="" className="closebtn" onClick={closeNav}>×</span>
-        <Link className={` ${ location.pathname.split('/')[3] == "general" ? "text-white" : ""}`} aria-current="page" to="/admin/domain/general/country">General</Link>
-        <Link className={` ${ location.pathname.split('/')[3] == "studentdomain" ? "text-white" : ""}`} aria-current="page" to="/admin/domain/studentdomain/group">Student</Link>
-        <Link className={` ${ location.pathname.split('/')[3] == "feedomain" ? "text-white" : ""}`} aria-current="page" to="/admin/domain/feedomain">Fee</Link>
-        <Link className={` ${ location.pathname.split('/')[3] == "examdomain" ? "text-white" : ""}`} aria-current="page" to="/admin/domain/examdomain">Examination</Link>
+        <Link className={` ${location.pathname.split('/')[3] == "general" ? "text-white" : ""}`} aria-current="page" to="/admin/domain/general/country">General</Link>
+        <Link className={` ${location.pathname.split('/')[3] == "studentdomain" ? "text-white" : ""}`} aria-current="page" to="/admin/domain/studentdomain/group">Academics</Link>
+        <Link className={` ${location.pathname.split('/')[3] == "feedomain" ? "text-white" : ""}`} aria-current="page" to="/admin/domain/feedomain">Fee</Link>
+        <Link className={` ${location.pathname.split('/')[3] == "examdomain" ? "text-white" : ""}`} aria-current="page" to="/admin/domain/examdomain">Examination</Link>
       </div>
       <div id='main'>
         <Outlet />

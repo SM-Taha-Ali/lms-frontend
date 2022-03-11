@@ -2,9 +2,9 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const User = require('../models/Users')
-const Student = require('../models/Student')
-const Employee = require('../models/Employee')
+const User = require('../models/Management/Registration/Users')
+const Student = require('../models/Management/Registration/Student')
+const Employee = require('../models/Management/Registration/Employee')
 
 const JWT_SECRET = "clix123#p$rO"
 
@@ -69,6 +69,7 @@ async function registerStudent(req, res) {
             perm_addr: req.body.perm_addr,
             country: req.body.country,
             state: req.body.state,
+            district: req.body.district,
             city: req.body.city,
             area: req.body.area,
             postal_code: req.body.postal_code,
@@ -137,9 +138,12 @@ async function registerEmployee(req, res) {
             perm_addr: req.body.perm_addr,
             country: req.body.country,
             state: req.body.state,
+            district: req.body.district,
             city: req.body.city,
             area: req.body.area,
             postal_code: req.body.postal_code,
+            subject: req.body.subject,
+            class: req.body.class
         })
         user = await User.create({
             username: req.body.username,
@@ -156,6 +160,23 @@ async function registerEmployee(req, res) {
         res.status(500).send(success, error)
     }
 
+}
+
+async function updateEmployee(req, res) {
+    try {
+        let item = await Employee.findById(req.body.id);
+        if (!item) { return res.status(404).send("Not found!") }
+        const subject  = req.body.subject;
+        const classes  = req.body.class;
+        const newItem = {};
+        if (subject) { newItem.subject = subject }
+        if (classes) { newItem.class = classes }
+        item = await Employee.findByIdAndUpdate(req.body.id, { $set: newItem }, { new: true })
+        res.json(newItem);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send("Internal server error") 
+    }
 }
 
 async function loginAuth(req, res) {
@@ -244,6 +265,17 @@ async function getEmployees(req, res) {
     }
 }
 
+async function getSubjectEmployee(req, res) {
+    try {
+        const employees = await Employee.find({ "subject": {$in: req.body.subject} });
+        res.json(employees);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).send("Internal server error")
+    }
+}
+
 async function updateRole_Status(req, res) {
     try {
         let item = await User.findById(req.body.id);
@@ -270,5 +302,7 @@ module.exports = {
     getUserEmployee,
     getUserStudent,
     loginAuth,
+    updateEmployee,
+    getSubjectEmployee,
     getUser
 }

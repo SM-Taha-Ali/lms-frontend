@@ -8,7 +8,7 @@ const Login = () => {
     let navigate = useNavigate();
 
     const contextLogin = useContext(loginContext);
-    const { user, loginUser, getUser } = contextLogin
+    const { loginUser, getUser } = contextLogin
 
     const [credentials, setCredentials] = useState({ username: "", password: "" });
 
@@ -30,20 +30,20 @@ const Login = () => {
     }
 
     return (
-        <>
-            <div className='login-card-wrapper'>
-                <div className="login-card shadow">
+        <div className='position-relative'>
+            <div className='login-card-wrapper py-5'>
+                <div className="login-card my-5">
                     <div className="img-wrapper">
-                        <img src="https://lh3.googleusercontent.com/EcdZ3YQCjyJNG-YiufppqRePIS_NYEaNenaOTJVUMAPt_0ctH1hXl4Ax0LjYrq9XtJpy_Q=s85" alt="" className='login-img' />
+                        <img src="https://lh3.googleusercontent.com/Aty5V_XB_jS5ZFG33b46cqd5IVcJSgeXWbWEjYcgIJ3NpsWPXRENf6YT4OIEOK3xpX7K=s85" alt="" className='login-img' />
                     </div>
                     <h1 className='py-4'>Sign In</h1>
                     <div className="login-card-body">
                         <div className="input-group mb-3">
-                            <span className="input-group-text background_blue" id="basic-addon1"><i class="fas fa-user"></i></span>
+                            <span className="input-group-text background_blue" id="basic-addon1"><i className="fas fa-user"></i></span>
                             <input type="text" className="form-control" placeholder="Username" aria-label="Username" name='username' onChange={onChange} />
                         </div>
                         <div className="input-group mb-3">
-                            <span className="input-group-text background_blue" id="basic-addon2"><i class="fas fa-key"></i></span>
+                            <span className="input-group-text background_blue" id="basic-addon2"><i className="fas fa-key"></i></span>
                             <input type="text" className="form-control" placeholder="Password" aria-label="Password" name='password' onChange={onChange} />
                         </div>
                         <div className="d-flex flex-row justify-content-between align-items-baseline py-4">
@@ -53,8 +53,8 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
-        </>
+            <Footer/>
+        </div>
     )
 }
 

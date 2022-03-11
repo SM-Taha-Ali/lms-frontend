@@ -7,8 +7,6 @@ const AdminNav = () => {
   useEffect(() => {
   }, [location]);
 
-  console.log(location.pathname.split('/'))
-
   return (
     <nav className='AdminNav'>
       <div className="container">

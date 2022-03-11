@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const FeedomainSchema = new Schema({
+const CitySchema = new Schema({
     value: {
         type: String,
         unique: true,
@@ -14,13 +14,9 @@ const FeedomainSchema = new Schema({
     name: {
         type: String,
         required: true
-    },
-    type: {
-        type: String,
-        required: true
     }
 });
 
-const Feedomain = mongoose.model('feedomain', FeedomainSchema)
+const City = mongoose.model('city', CitySchema)
 
-module.exports = Feedomain;
+module.exports = City;

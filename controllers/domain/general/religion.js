@@ -1,4 +1,4 @@
-const Religion = require('../../../models/Religion')
+const Religion = require('../../../models/Domain/General/Religion')
 
 async function addReligion(req, res) {
     // Check whether the user with this email already exists

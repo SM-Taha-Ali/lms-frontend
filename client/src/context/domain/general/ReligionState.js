@@ -13,6 +13,7 @@ const GlobalState = (props) => {
     const getReligion = async () => {
         // TODO API CALL
         const response = await fetch(`/api/religion/get-religion`, {
+        // const response = await fetch(`${host}/api/religion/get-religion`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,6 +27,7 @@ const GlobalState = (props) => {
     const addReligion = async (value, label, name) => {
         // TODO API CALL
         const response = await fetch(`/api/religion/add-religion`, {
+        // const response = await fetch(`${host}/api/religion/add-religion`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -41,6 +43,7 @@ const GlobalState = (props) => {
 
     const updateReligion = async (id, value, label, name) => {
         const response = await fetch(`/api/religion/update-religion`, {
+        // const response = await fetch(`${host}/api/religion/update-religion`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -68,6 +71,7 @@ const GlobalState = (props) => {
 
     const deleteReligion = async (id) => {
         const response = await fetch(`/api/religion/delete-religion`, {
+        // const response = await fetch(`${host}/api/religion/delete-religion`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

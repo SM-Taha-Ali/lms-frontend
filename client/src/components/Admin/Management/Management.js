@@ -27,7 +27,7 @@ const Management = () => {
         <span href="" className="closebtn" onClick={closeNav}>×</span>
         <Link className={` ${ location.pathname.split('/')[3] == "dashboard" ? "text-white" : ""}`} aria-current="page" to="/admin/management/dashboard">Dashboard</Link>
         <Link className={` ${ location.pathname.split('/')[3] == "registration" ? "text-white" : ""}`} aria-current="page" to="/admin/management/registration/stdreg">Registration</Link>
-        <Link className={` ${ location.pathname.split('/')[3] == "adbatch" ? "text-white" : ""}`} aria-current="page" to="/admin/management/adbatch">Batches</Link>
+        <Link className={` ${ location.pathname.split('/')[3] == "adbatch" ? "text-white" : ""}`} aria-current="page" to="/admin/management/adbatch/classmanhome">Batches</Link>
         <Link className={` ${ location.pathname.split('/')[3] == "adexam" ? "text-white" : ""}`} aria-current="page" to="/admin/management/adexam">Examination</Link>
         <Link className={` ${ location.pathname.split('/')[3] == "adprofile" ? "text-white" : ""}`} aria-current="page" to="/admin/management/adprofile/stdprof">Profiles</Link>
         <Link className={` ${ location.pathname.split('/')[3] == "revenue" ? "text-white" : ""}`} aria-current="page" to="/admin/management/revenue">Revenue</Link>

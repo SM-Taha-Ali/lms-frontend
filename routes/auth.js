@@ -121,6 +121,7 @@ router.post(
   authController.getUserStudent
 )
 
+
 // Fetching user details
 router.post(
   // Route Path
@@ -157,6 +158,19 @@ router.get(
   // Route Path
   '/get-employees',
   authController.getEmployees
+)
+
+router.post(
+  // Route Path
+  '/get-subject-employee',
+  authController.getSubjectEmployee
+)
+
+router.put(
+  // Route Path
+  '/get-update-employee',
+  // fetching user details
+  authController.updateEmployee
 )
 
 

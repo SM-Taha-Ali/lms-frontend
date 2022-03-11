@@ -13,6 +13,7 @@ const GlobalState = (props) => {
     const getEmployees = async () => {
         // TODO API CALL
         const response = await fetch(`/api/auth/get-employees`, {
+        // const response = await fetch(`${host}/api/auth/get-employees`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,14 +26,15 @@ const GlobalState = (props) => {
     }
 
 
-    const regEmployee = async ( inquiry, gr_no, join_date, jobType, dept, designation, name, f_name, contact, whatsApp, email, cnic, gender, dob, religion, nationality, mother_tng, blood_group, role, martial_status, spouse_name, no_of_children, family_members, curr_addr, perm_addr, country, state, city, area, postal_code, username, password, status ) => {
+    const regEmployee = async ( inquiry, gr_no, join_date, jobType, dept, designation, name, f_name, contact, whatsApp, email, cnic, gender, dob, religion, nationality, mother_tng, blood_group, role, martial_status, spouse_name, no_of_children, family_members, curr_addr, perm_addr, country, state, district, city, area, postal_code, username, password, status ) => {
         // TODO API CALL
         const response = await fetch(`/api/auth/register-employee`, {
+        // const response = await fetch(`${host}/api/auth/register-employee`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ inquiry, gr_no, join_date, jobType, dept, designation, name, f_name, contact, whatsApp, email, cnic, gender, dob, religion, nationality, mother_tng, blood_group, role:"employee", martial_status, spouse_name, no_of_children, family_members, curr_addr, perm_addr, country, state, city, area, postal_code, username, password, status  })
+            body: JSON.stringify({ inquiry, gr_no, join_date, jobType, dept, designation, name, f_name, contact, whatsApp, email, cnic, gender, dob, religion, nationality, mother_tng, blood_group, role, martial_status, spouse_name, no_of_children, family_members, curr_addr, perm_addr, country, state, district, city, area, postal_code, username, password, status:"active"  })
         }).catch(err => {
             console.log(err.message)
         });
@@ -44,6 +46,7 @@ const GlobalState = (props) => {
     const getUserEmployee = async (emp_id) => {
         // TODO API CALL
         const response = await fetch(`/api/auth/get-user-employee`, {
+        // const response = await fetch(`${host}/api/auth/get-user-employee`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,50 +59,49 @@ const GlobalState = (props) => {
         return json
     }
 
+    const getSubjectEmployee = async (subject) => {
+        // TODO API CALL
+        const response = await fetch(`/api/auth/get-subject-employee`, {
+        // const response = await fetch(`${host}/api/auth/get-subject-employee`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ subject })
+        }).catch(err => {
+            console.log(err.message)
+        });
+        const json = await response.json()
+        return json
+    }
 
-    //  Update Quantity
+    const updateSubEmployee = async (id, subject) => {
+        const response = await fetch(`/api/auth/get-update-employee`, {
+        // const response = await fetch(`${host}/api/auth/get-update-employee`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id, subject })
+        });
 
-    // const updateCountry = async (id, value, label) => {
-    //     const response = await fetch(`/api/country//update-country`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({ id, value, label })
-    //     });
+        // Logic to edit in client side
 
-    //     // Logic to edit in client side
+        let newEmpreg = JSON.parse(JSON.stringify(empreg))
 
-    //     let newCountry = JSON.parse(JSON.stringify(country))
-
-    //     for (let index = 0; index < newCountry.length; index++) {
-    //         const element = country[index];
-    //         if (element._id == id) {
-    //             newCountry[index].value = value;
-    //             newCountry[index].label = label;
-    //             break;
-    //         }
-    //     }
-    //     setCountry(newCountry);
-    // }
-
-    // Delete item
-
-    // const deleteCountry = async (id) => {
-    //     const response = await fetch(`${host}/api/country//delete-country`, {
-    //         method: 'DELETE',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({ id })
-    //     });
-    //     const newCountry = country.filter((countr) => { return countr._id !== id })
-    //     setCountry(newCountry)
-    // }
+        for (let index = 0; index < newEmpreg.length; index++) {
+            const element = empreg[index];
+            if (element._id == id) {
+                newEmpreg[index].subject = subject;
+                break;
+            }
+        }
+        setEmpreg(newEmpreg);
+    }
 
 
     return (
-        <EmpregContext.Provider value={{ empreg, getEmployees, regEmployee, getUserEmployee }}>
+        <EmpregContext.Provider value={{ empreg, getEmployees, regEmployee, updateSubEmployee, getUserEmployee, getSubjectEmployee }}>
             {props.children}
         </EmpregContext.Provider>
     )

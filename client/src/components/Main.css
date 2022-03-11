@@ -1,3 +1,7 @@
+html, body{
+    height: 100%;
+}
+
 /* Color palattes */
 :root {
     --dark_blue: #22577A;
@@ -6,20 +10,18 @@
     --green: #2d6a4f;
     --light_green: #74c69d;
     --dark_green: #081c15;
-  }
+}
 
 /* Universal declarations */
-
-/* Footer */
-.background_footer{
-    margin-top: 150px;
-    background-color: var(--dark_blue);
-    color: white;
-}
 
 .btn_dark_blue{
     background-color: var(--dark_blue);
     color: black;
+}
+
+.icon_dark_blue{
+    background-color: var(--dark_blue);
+    color: white;
 }
 
 .btn_blue{
@@ -52,23 +54,41 @@
 }
 
 
+/* FOOTER */
+
+.footer_tpa{
+    position: relative;
+    bottom: 0px;
+    height: 270px;
+    width: 100%;
+    background-color: var(--dark_blue);
+    color: white;
+    padding: 20px;
+
+}
+
+.height_100{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 300px;
+}
+
+
 /* LOGIN PAGE CSS */
 
 .login-card-wrapper{
     position: relative;
-    height: 100vh;
+    height: 100%
 }
 
 .login-card{
-    width: 30%;
-    padding: 35px;
+    width: 350px;
+    margin: 0 auto;
+    padding: 20px;
     border-radius: 10px;
     border: 1px solid var(--blue);
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
 }
 
 .img-wrapper{
@@ -95,7 +115,6 @@
     left: 0;
     right: 0;
 }
-
 
 /* NAVBAR */
 
@@ -151,3 +170,71 @@
   .dropdown_link:hover{
       color: white !important;
   }
+
+  .min_height_footer {
+    min-height: 100vh;
+  }
+
+  /* LOGIN MEDIA QUERIES */
+
+  /* @media screen and (max-width: 1280px) {
+    .login-card {
+        width: 40%;
+    }
+}
+
+  @media screen and (max-width: 960px) {
+    .login-card {
+        width: 50%;
+    }
+} */
+
+  @media screen and (max-width: 640px) {
+    .login-card {
+        border: none;
+        box-shadow: none;
+    }
+
+}
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, tfoot, th, td, tr { 
+		display: block; 
+	}
+
+    th{
+        width: 100% !important;
+    }
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+        padding: 0px;
+		padding-left: 50%; 
+        width: 100% !important;
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+}

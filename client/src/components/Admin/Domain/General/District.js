@@ -1,45 +1,42 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
-import religionContext from '../../../context/domain/general/religionContext';
-import "../Stylesheets/Religion.css"
-import ReligionTr from './ReligionTr';
+import districtContext from '../../../../context/domain/general/districtContext';
+import DistrictTr from './DistrictTr';
 
-const Religion = () => {
-
-  const context = useContext(religionContext);
-  const { religion, getReligion, addReligion, updateReligion, deleteReligion } = context
+const District = () => {
+  const context = useContext(districtContext);
+  const { district, getdistrict, adddistrict, updatedistrict, deletedistrict } = context
 
   useEffect(() => {
-    getReligion()
+    getdistrict()
   }, [])
 
   const ref = useRef(null)
 
-  const [religions, setReligions] = useState({ cable: "", label: "" })
+  const [districts, setdistricts] = useState({ cable: "", label: "" })
 
   const onChange = (e) => {
-    setReligions({ ...religions, cable: e.target.value })
-    setReligions({ ...religions, label: e.target.value })
+    setdistricts({ ...districts, cable: e.target.value })
+    setdistricts({ ...districts, label: e.target.value })
   }
 
   const updateClick = () => {
-    updateReligion(religions._id, religions.label, religions.label, "religion")
+    updatedistrict(districts._id, districts.label, districts.label, "district")
   }
 
-  const religionUpdate = (currentReli) => {
+  const districtUpdate = (currentdistrict) => {
     ref.current.click();
-    setReligions(currentReli)
+    setdistricts(currentdistrict)
   }
 
   const handleClick = (e) => {
     e.preventDefault()
-    addReligion(religions.label, religions.label, "religion")
-    var religion = document.getElementById("religion")
-    religion.value = ""
+    adddistrict(districts.label, districts.label, "district")
+    var district = document.getElementById("district")
+    district.value = ""
   }
 
   return (
     <div>
-
       <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Launch static backdrop modal
       </button>
@@ -48,14 +45,14 @@ const Religion = () => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="staticBackdropLabel">Update Religion</h5>
+              <h5 className="modal-title" id="staticBackdropLabel">Update district</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
             </div>
             <div className="modal-body">
               <form>
                 <div className="mb-3">
                   <label htmlFor="exampleInputEmail1" className="form-label">Name</label>
-                  <input type="text" className="form-control" id="product_name" name='name' required onChange={onChange} value={religions.label} />
+                  <input type="text" className="form-control" id="product_name" name='name' required onChange={onChange} value={districts.label} />
                 </div>
               </form>
             </div>
@@ -66,11 +63,9 @@ const Religion = () => {
           </div>
         </div>
       </div>
-
-
-      <h1 className='mt-5'>Add Religion</h1>
+      <h1 className='mt-5'>Add District</h1>
       <div className="my-5">
-        <input type="text" className="form-control" id="religion" onChange={onChange} />
+        <input type="text" className="form-control" id="district" name='value' onChange={onChange} />
         <div className="text-end py-4">
           <button className="btn btn_dark_blue text-white" onClick={handleClick}>Add Now</button>
         </div>
@@ -81,20 +76,19 @@ const Religion = () => {
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Religion</th>
+              <th scope="col">District</th>
               <th scope="col" className='text-center'>Action</th>
             </tr>
           </thead>
           <tbody>
-            {religion.map((reli, i) => {
-              return <ReligionTr key={i} reli={reli} index={i} getReligion={getReligion} deleteReligion={deleteReligion} religionUpdate={religionUpdate} />
+            {district.map((countr, i) => {
+              return <DistrictTr key={i} countr={countr} index={i} getdistrict={getdistrict} deletedistrict={deletedistrict} districtUpdate={districtUpdate} />
             })}
           </tbody>
         </table>
       </div>
-
     </div>
   )
 }
 
-export default Religion
+export default District

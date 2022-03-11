@@ -5,13 +5,13 @@ const GlobalState = (props) => {
 
     const host = "http://localhost:5000"
 
-    const [user, setUser] = useState({})
 
     // Get Cart Items
 
     const loginUser = async (username, password) => {
         // TODO API CALL
         const response = await fetch(`/api/auth/login`, {
+        // const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -27,6 +27,7 @@ const GlobalState = (props) => {
     const getUser = async (token) => {
         // TODO API CALL
         const response = await fetch(`/api/auth/get-user`, {
+        // const response = await fetch(`${host}/api/auth/get-user`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,7 +44,7 @@ const GlobalState = (props) => {
 
 
     return (
-        <LoginContext.Provider value={{ user, loginUser, getUser }}>
+        <LoginContext.Provider value={{ loginUser, getUser }}>
             {props.children}
         </LoginContext.Provider>
     )

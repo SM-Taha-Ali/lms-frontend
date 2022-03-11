@@ -68,8 +68,15 @@ const Dashboard = () => {
     ]
 
     const openNav = () => {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
+        var body = document.getElementsByTagName("BODY")[0];
+        let width = body.offsetWidth
+        if (width <= 640) {
+            document.getElementById("mySidenav").style.width = "100vw";
+            document.getElementById("main").style.marginLeft = "auto";
+        } else {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
     }
 
     return (
@@ -79,7 +86,7 @@ const Dashboard = () => {
                 <ul className='domain_nav ms-5'>
                 </ul>
             </div>
-            <div className='container'>
+            <div className='container pb-5'>
                 <h1 className="text-Red text-center pt-2 pb-4">DASHBOARD</h1>
                 <div className="row">
                     <div className="col-sm-6 col-md-6 col-lg-3 mt-3">
@@ -230,61 +237,60 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className="row">
-                <div className="col-sm-6 col-md-6 col-lg-3">
-                    <div className="card">
-                        <div className="content">
-                            <div className="row">
-                                <div className="dfd text-center">
-                                    <i className="blue large-icon mb-2 fas fa-thumbs-up" />
-                                    <h4 className="mb-0">+21,900</h4>
-                                    <p className="text-muted">FACEBOOK PAGE LIKES</p>
+                    <div className="col-sm-6 col-md-6 col-lg-3">
+                        <div className="card">
+                            <div className="content">
+                                <div className="row">
+                                    <div className="dfd text-center">
+                                        <i className="blue large-icon mb-2 fas fa-thumbs-up" />
+                                        <h4 className="mb-0">+21,900</h4>
+                                        <p className="text-muted">FACEBOOK PAGE LIKES</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="col-sm-6 col-md-6 col-lg-3">
-                    <div className="card">
-                        <div className="content">
-                            <div className="row">
-                                <div className="dfd text-center">
-                                    <i className="orange large-icon mb-2 fas fa-reply-all" />
-                                    <h4 className="mb-0">+22,566</h4>
-                                    <p className="text-muted">INSTAGRAM FOLLOWERS</p>
+                    <div className="col-sm-6 col-md-6 col-lg-3">
+                        <div className="card">
+                            <div className="content">
+                                <div className="row">
+                                    <div className="dfd text-center">
+                                        <i className="orange large-icon mb-2 fas fa-reply-all" />
+                                        <h4 className="mb-0">+22,566</h4>
+                                        <p className="text-muted">INSTAGRAM FOLLOWERS</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="col-sm-6 col-md-6 col-lg-3">
-                    <div className="card">
-                        <div className="content">
-                            <div className="row">
-                                <div className="dfd text-center">
-                                    <i className="grey large-icon mb-2 fas fa-envelope" />
-                                    <h4 className="mb-0">+15,566</h4>
-                                    <p className="text-muted">E-MAIL SUBSCRIBERS</p>
+                    <div className="col-sm-6 col-md-6 col-lg-3">
+                        <div className="card">
+                            <div className="content">
+                                <div className="row">
+                                    <div className="dfd text-center">
+                                        <i className="grey large-icon mb-2 fas fa-envelope" />
+                                        <h4 className="mb-0">+15,566</h4>
+                                        <p className="text-muted">E-MAIL SUBSCRIBERS</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="col-sm-6 col-md-6 col-lg-3">
-                    <div className="card">
-                        <div className="content">
-                            <div className="row">
-                                <div className="dfd text-center">
-                                    <i className="olive large-icon mb-2 fas fa-dollar-sign" />
-                                    <h4 className="mb-0">+98,601</h4>
-                                    <p className="text-muted">TOTAL SALES</p>
+                    <div className="col-sm-6 col-md-6 col-lg-3">
+                        <div className="card">
+                            <div className="content">
+                                <div className="row">
+                                    <div className="dfd text-center">
+                                        <i className="olive large-icon mb-2 fas fa-dollar-sign" />
+                                        <h4 className="mb-0">+98,601</h4>
+                                        <p className="text-muted">TOTAL SALES</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-            <Footer />
         </>
     )
 }

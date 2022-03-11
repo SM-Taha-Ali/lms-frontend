@@ -1,4 +1,4 @@
-const Dgroup = require('../../../models/Dgroup')
+const Dgroup = require('../../../models/Domain/Student/Dgroup')
 
 async function addDgroup(req, res) {
     // Check whether the user with this email already exists

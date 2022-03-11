@@ -1,4 +1,4 @@
-const Feedomain = require('../../../models/Feedomain')
+const Feedomain = require('../../../models/Domain/Fee/Feedomain')
 
 async function addFeedomain(req, res) {
     // Check whether the user with this email already exists

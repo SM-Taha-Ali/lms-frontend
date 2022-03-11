@@ -1,16 +1,40 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import "../../Stylesheets/Profile.css"
 
 const ProfileCard = (props) => {
+
     const { user } = props
+    console.log(user)
+
     return (
-        <div className='col-md-3 px-3'>
+        <div className='col-xl-3 col-lg-4 col-md-6 col-sm-12 p-3'>
             <div className="profile_card shadow">
                 <div className="profile_img_container text-center">
-                    <img src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="" />
+                    <img src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="" className="profile_img" />
                 </div>
+                <h3 className='text-center'>{user.name}</h3>
                 <div className="profile_card_body">
-                    <h3 className='text-center'>{user.name}</h3>
+                    <div className="d-flex flex-row justify-content-between">
+                        <p><b>GR.No.</b></p>
+                        <p>{user.gr_no}</p>
+                    </div>
+                    <div className="d-flex flex-row justify-content-between">
+                        <p><b>Class:</b></p>
+                        <p>XII</p>
+                    </div>
+                    <div className="d-flex flex-row justify-content-between">
+                        <p><b>Mobile:</b></p>
+                        <p>{user.contact}</p>
+                    </div>
+                </div>
+                <div className="profile_card_footer">
+                    <Link
+                        to='/admin/management/adprofile/profiledesc'
+                        state={{ user: user }}
+                    >
+                        <button className="btn btn_dark_blue text-white"> <i className="fad fa-eye me-2"></i>View Profile</button>
+                    </Link>
                 </div>
             </div>
         </div>

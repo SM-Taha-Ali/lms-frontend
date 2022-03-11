@@ -13,6 +13,7 @@ const GlobalState = (props) => {
     const getCountry = async () => {
         // TODO API CALL
         const response = await fetch(`/api/country//get-country`, {
+        // const response = await fetch(`${host}/api/country//get-country`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +26,8 @@ const GlobalState = (props) => {
 
     const addCountry = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/country//add-country`, {
+        const response = await fetch(`/api/country/add-country`, {
+        // const response = await fetch(`${host}/api/country/add-country`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +42,8 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updateCountry = async (id, value, label, name) => {
-        const response = await fetch(`/api/country//update-country`, {
+        const response = await fetch(`/api/country/update-country`, {
+        // const response = await fetch(`${host}/api/country/update-country`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -68,6 +71,7 @@ const GlobalState = (props) => {
 
     const deleteCountry = async (id) => {
         const response = await fetch(`/api/country//delete-country`, {
+        // const response = await fetch(`${host}/api/country//delete-country`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

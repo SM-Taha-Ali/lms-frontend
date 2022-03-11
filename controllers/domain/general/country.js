@@ -1,4 +1,4 @@
-const Country = require('../../../models/Country')
+const Country = require('../../../models/Domain/General/Country')
 
 async function addCountry(req, res) {
     // Check whether the user with this email already exists
