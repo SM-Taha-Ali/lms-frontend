@@ -37,7 +37,7 @@ app.use('/api/feedomain', require('./routes/domain/fee/feedomain'))
 app.use('/api/examdomain', require('./routes/domain/exam/examdomain'))
 
 // Management Routes
-
+// ok
 // Batches
 app.use('/api/batches', require('./routes/management/batches/batches'))
 
