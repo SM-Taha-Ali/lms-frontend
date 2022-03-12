@@ -38,8 +38,10 @@ import EmpReg from './components/Admin/Management/Registration/EmpReg';
 import StdProf from './components/Admin/Management/Profiles/StdProf';
 import EmpProf from './components/Admin/Management/Profiles/EmpProf';
 import ProfileDesc from './components/Admin/Management/Profiles/ProfileDesc';
+import ProfileDescStd from './components/Admin/Management/Profiles/ProfileDescStudent';
 import ClassManage from './components/Admin/Management/Class_Manager/ClassManage';
 import ClassManHome from './components/Admin/Management/Class_Manager/ClassManHome';
+import BatchDesc from './components/Admin/Management/Class_Manager/BatchDesc';
 import CountryState from './context/domain/general/CountryState';
 import ReligionState from './context/domain/general/ReligionState';
 import AreaState from './context/domain/general/AreaState';
@@ -107,6 +109,7 @@ function App() {
                                                       <Route path="adbatch" element={<AdBatch />} >
                                                         <Route path="classmanage" element={<ClassManage />} />
                                                         <Route path="classmanhome" element={<ClassManHome />} />
+                                                        <Route path="batchdesc" element={<BatchDesc />} />
                                                       </Route>
                                                       <Route path="adexam" element={<AdExam />} />
                                                       <Route path="revenue" element={<Revenue />} />
@@ -118,6 +121,7 @@ function App() {
                                                         <Route path="stdprof" element={<StdProf />} />
                                                         <Route path="empprof" element={<EmpProf />} />
                                                         <Route path="profiledesc" element={<ProfileDesc />} />
+                                                        <Route path="profiledescstd" element={<ProfileDescStd />} />
                                                       </Route>
                                                     </Route>
                                                     <Route path="domain" element={<Domain />}>

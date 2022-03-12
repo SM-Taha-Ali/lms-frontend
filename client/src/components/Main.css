@@ -175,6 +175,10 @@ html, body{
     min-height: 100vh;
   }
 
+  .test_border{
+      border: 1px solid red;
+  }
+
   /* LOGIN MEDIA QUERIES */
 
   /* @media screen and (max-width: 1280px) {

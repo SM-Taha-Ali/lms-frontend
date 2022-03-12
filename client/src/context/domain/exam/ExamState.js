@@ -3,7 +3,7 @@ import examContext from './examContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const apiUrl = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const examInitial = [ ]
     const [exam, setexam] = useState(examInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getexam = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/examdomain/get-examdomain`, {
-        // const response = await fetch(`${host}/api/examdomain/get-examdomain`, {
+        const response = await fetch(`${apiUrl}/api/examdomain/get-examdomain`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +25,7 @@ const GlobalState = (props) => {
 
     const addexam = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/examdomain/add-examdomain`, {
-        // const response = await fetch(`${host}/api/examdomain/add-examdomain`, {
+        const response = await fetch(`${apiUrl}/api/examdomain/add-examdomain`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +40,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updateexam = async (id, value, label, name) => {
-        const response = await fetch(`/api/examdomain/update-examdomain`, {
-        // const response = await fetch(`${host}/api/examdomain/update-examdomain`, {
+        const response = await fetch(`${apiUrl}/api/examdomain/update-examdomain`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +67,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deleteexam = async (id) => {
-        const response = await fetch(`/api/examdomain/delete-examdomain`, {
-        // const response = await fetch(`${host}/api/examdomain/delete-examdomain`, {
+        const response = await fetch(`${apiUrl}/api/examdomain/delete-examdomain`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

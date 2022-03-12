@@ -3,7 +3,8 @@ import ReligionContext from './religionContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
+
 
     const religionInitial = [ ]
     const [religion, setReligion] = useState(religionInitial)
@@ -12,8 +13,7 @@ const GlobalState = (props) => {
 
     const getReligion = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/religion/get-religion`, {
-        // const response = await fetch(`${host}/api/religion/get-religion`, {
+        const response = await fetch(`${host}/api/religion/get-religion`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +26,7 @@ const GlobalState = (props) => {
 
     const addReligion = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/religion/add-religion`, {
-        // const response = await fetch(`${host}/api/religion/add-religion`, {
+        const response = await fetch(`${host}/api/religion/add-religion`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +41,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updateReligion = async (id, value, label, name) => {
-        const response = await fetch(`/api/religion/update-religion`, {
-        // const response = await fetch(`${host}/api/religion/update-religion`, {
+        const response = await fetch(`${host}/api/religion/update-religion`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +68,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deleteReligion = async (id) => {
-        const response = await fetch(`/api/religion/delete-religion`, {
-        // const response = await fetch(`${host}/api/religion/delete-religion`, {
+        const response = await fetch(`${host}/api/religion/delete-religion`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

@@ -3,7 +3,8 @@ import CountryContext from './countryContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
+
 
     const countryInitial = [ ]
     const [country, setCountry] = useState(countryInitial)
@@ -12,8 +13,7 @@ const GlobalState = (props) => {
 
     const getCountry = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/country//get-country`, {
-        // const response = await fetch(`${host}/api/country//get-country`, {
+        const response = await fetch(`${host}/api/country//get-country`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +26,7 @@ const GlobalState = (props) => {
 
     const addCountry = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/country/add-country`, {
-        // const response = await fetch(`${host}/api/country/add-country`, {
+        const response = await fetch(`${host}/api/country/add-country`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +41,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updateCountry = async (id, value, label, name) => {
-        const response = await fetch(`/api/country/update-country`, {
-        // const response = await fetch(`${host}/api/country/update-country`, {
+        const response = await fetch(`${host}/api/country/update-country`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +68,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deleteCountry = async (id) => {
-        const response = await fetch(`/api/country//delete-country`, {
-        // const response = await fetch(`${host}/api/country//delete-country`, {
+        const response = await fetch(`${host}/api/country//delete-country`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

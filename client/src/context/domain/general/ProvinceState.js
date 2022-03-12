@@ -3,7 +3,8 @@ import provinceContext from './provinceContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
+
 
     const provinceInitial = [ ]
     const [province, setprovince] = useState(provinceInitial)
@@ -12,8 +13,7 @@ const GlobalState = (props) => {
 
     const getprovince = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/province//get-province`, {
-        // const response = await fetch(`${host}/api/province//get-province`, {
+        const response = await fetch(`${host}/api/province//get-province`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +26,7 @@ const GlobalState = (props) => {
 
     const addprovince = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/province/add-province`, {
-        // const response = await fetch(`${host}/api/province/add-province`, {
+        const response = await fetch(`${host}/api/province/add-province`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +41,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updateprovince = async (id, value, label, name) => {
-        const response = await fetch(`/api/province/update-province`, {
-        // const response = await fetch(`${host}/api/province/update-province`, {
+        const response = await fetch(`${host}/api/province/update-province`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +68,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deleteprovince = async (id) => {
-        const response = await fetch(`/api/province//delete-province`, {
-        // const response = await fetch(`${host}/api/province//delete-province`, {
+        const response = await fetch(`${host}/api/province//delete-province`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

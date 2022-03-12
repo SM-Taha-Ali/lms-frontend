@@ -3,7 +3,7 @@ import sectionContext from './sectionContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const sectionInitial = []
     const [section, setsection] = useState(sectionInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getsection = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/dsection/get-dsection`, {
-        // const response = await fetch(`${host}/api/dsection/get-dsection`, {
+        const response = await fetch(`${host}/api/dsection/get-dsection`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +25,7 @@ const GlobalState = (props) => {
 
     const addsection = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/dsection/add-dsection`, {
-        // const response = await fetch(`${host}/api/dsection/add-dsection`, {
+        const response = await fetch(`${host}/api/dsection/add-dsection`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +40,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updatesection = async (id, value, label, name) => {
-        const response = await fetch(`/api/dsection/update-dsection`, {
-        // const response = await fetch(`${host}/api/dsection/update-dsection`, {
+        const response = await fetch(`${host}/api/dsection/update-dsection`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +67,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletesection = async (id) => {
-        const response = await fetch(`/api/dsection/delete-dsection`, {
-        // const response = await fetch(`${host}/api/dsection/delete-dsection`, {
+        const response = await fetch(`${host}/api/dsection/delete-dsection`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

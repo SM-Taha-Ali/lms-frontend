@@ -3,7 +3,7 @@ import subjectContext from './subjectContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const subjectInitial = [ ]
     const [subject, setsubject] = useState(subjectInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getsubject = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/dsubject/get-dsubject`, {
-        // const response = await fetch(`${host}/api/dsubject/get-dsubject`, {
+        const response = await fetch(`${host}/api/dsubject/get-dsubject`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +25,7 @@ const GlobalState = (props) => {
 
     const addsubject = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/dsubject/add-dsubject`, {
-        // const response = await fetch(`${host}/api/dsubject/add-dsubject`, {
+        const response = await fetch(`${host}/api/dsubject/add-dsubject`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +40,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updatesubject = async (id, value, label, name) => {
-        const response = await fetch(`/api/dsubject/update-dsubject`, {
-        // const response = await fetch(`${host}/api/dsubject/update-dsubject`, {
+        const response = await fetch(`${host}/api/dsubject/update-dsubject`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +67,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletesubject = async (id) => {
-        const response = await fetch(`/api/dsubject/delete-dsubject`, {
-        // const response = await fetch(`${host}/api/dsubject/delete-dsubject`, {
+        const response = await fetch(`${host}/api/dsubject/delete-dsubject`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

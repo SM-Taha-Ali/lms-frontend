@@ -37,6 +37,7 @@ const ProfileDesc = () => {
       }
     }
     updateSubEmployee(user._id, checkedValue)
+    // location.state.user = empreg
   }
 
   return (
@@ -74,7 +75,7 @@ const ProfileDesc = () => {
         </div>
         <div className="profile_desc_img_wrapper mt-4">
           <img
-            src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png"
+            src='/images/profile_avatar.png'
             alt=""
             className="profile_desc_img d-inline-block"
           />

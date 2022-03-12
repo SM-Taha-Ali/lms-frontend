@@ -3,7 +3,7 @@ import classContext from './classContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const clasInitial = [ ]
     const [clas, setclas] = useState(clasInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getclas = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/dclass/get-dclass`, {
-        // const response = await fetch(`${host}/api/dclass/get-dclass`, {
+        const response = await fetch(`${host}/api/dclass/get-dclass`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +25,7 @@ const GlobalState = (props) => {
 
     const addclas = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/dclass/add-dclass`, {
-        // const response = await fetch(`${host}/api/dclass/add-dclass`, {
+        const response = await fetch(`${host}/api/dclass/add-dclass`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +40,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updateclas = async (id, value, label, name) => {
-        const response = await fetch(`/api/dclass/update-dclass`, {
-        // const response = await fetch(`${host}/api/dclass/update-dclass`, {
+        const response = await fetch(`${host}/api/dclass/update-dclass`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +67,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deleteclas = async (id) => {
-        const response = await fetch(`/api/dclass/delete-dclass`, {
-        // const response = await fetch(`${host}/api/dclass/delete-dclass`, {
+        const response = await fetch(`${host}/api/dclass/delete-dclass`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

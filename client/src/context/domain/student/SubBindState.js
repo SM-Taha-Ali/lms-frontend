@@ -3,7 +3,7 @@ import subBindContext from './subBindContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const subBindInitial = []
     const [subBind, setsubBind] = useState(subBindInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getsubBind = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/subBind/get-subBind`, {
-        // const response = await fetch(`${host}/api/subBind/get-subBind`, {
+        const response = await fetch(`${host}/api/subBind/get-subBind`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +25,7 @@ const GlobalState = (props) => {
 
     const addsubBind = async (subject, clasS, group, subgroup) => {
         // TODO API CALL
-        const response = await fetch(`/api/subBind/add-subBind`, {
-        // const response = await fetch(`${host}/api/subBind/add-subBind`, {
+        const response = await fetch(`${host}/api/subBind/add-subBind`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -41,8 +39,7 @@ const GlobalState = (props) => {
 
     const getsubOnlyBind = async ( clasS, group, subgroup) => {
         // TODO API CALL
-        const response = await fetch(`/api/subBind/get-subOnlyBind`, {
-        // const response = await fetch(`${host}/api/subBind/get-subOnlyBind`, {
+        const response = await fetch(`${host}/api/subBind/get-subOnlyBind`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -57,8 +54,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updatesubBind = async (id, subject, clasS, group, subgroup) => {
-        const response = await fetch(`/api/subBind/update-subBind`, {
-        // const response = await fetch(`${host}/api/subBind/update-subBind`, {
+        const response = await fetch(`${host}/api/subBind/update-subBind`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -86,8 +82,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletesubBind = async (id) => {
-        const response = await fetch(`/api/subBind/delete-subBind`, {
-        // const response = await fetch(`${host}/api/subBind/delete-subBind`, {
+        const response = await fetch(`${host}/api/subBind/delete-subBind`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

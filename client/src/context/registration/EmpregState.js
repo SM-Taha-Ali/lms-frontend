@@ -3,7 +3,7 @@ import EmpregContext from './empregContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const empregInitial = [ ]
     const [empreg, setEmpreg] = useState(empregInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getEmployees = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/auth/get-employees`, {
-        // const response = await fetch(`${host}/api/auth/get-employees`, {
+        const response = await fetch(`${host}/api/auth/get-employees`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,8 +27,7 @@ const GlobalState = (props) => {
 
     const regEmployee = async ( inquiry, gr_no, join_date, jobType, dept, designation, name, f_name, contact, whatsApp, email, cnic, gender, dob, religion, nationality, mother_tng, blood_group, role, martial_status, spouse_name, no_of_children, family_members, curr_addr, perm_addr, country, state, district, city, area, postal_code, username, password, status ) => {
         // TODO API CALL
-        const response = await fetch(`/api/auth/register-employee`, {
-        // const response = await fetch(`${host}/api/auth/register-employee`, {
+        const response = await fetch(`${host}/api/auth/register-employee`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,8 +43,7 @@ const GlobalState = (props) => {
 
     const getUserEmployee = async (emp_id) => {
         // TODO API CALL
-        const response = await fetch(`/api/auth/get-user-employee`, {
-        // const response = await fetch(`${host}/api/auth/get-user-employee`, {
+        const response = await fetch(`${host}/api/auth/get-user-employee`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -61,8 +58,7 @@ const GlobalState = (props) => {
 
     const getSubjectEmployee = async (subject) => {
         // TODO API CALL
-        const response = await fetch(`/api/auth/get-subject-employee`, {
-        // const response = await fetch(`${host}/api/auth/get-subject-employee`, {
+        const response = await fetch(`${host}/api/auth/get-subject-employee`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -76,8 +72,7 @@ const GlobalState = (props) => {
     }
 
     const updateSubEmployee = async (id, subject) => {
-        const response = await fetch(`/api/auth/get-update-employee`, {
-        // const response = await fetch(`${host}/api/auth/get-update-employee`, {
+        const response = await fetch(`${host}/api/auth/get-update-employee`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

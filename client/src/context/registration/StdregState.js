@@ -3,7 +3,7 @@ import StdregContext from './stdregContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const stdregInitial = [ ]
     const [stdreg, setStdreg] = useState(stdregInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getStudents = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/auth/get-students`, {
-        // const response = await fetch(`${host}/api/auth/get-students`, {
+        const response = await fetch(`${host}/api/auth/get-students`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,8 +27,7 @@ const GlobalState = (props) => {
 
     const regStudent = async (inquiry, gr_no, ref, reg_date, name, contact, whatsApp, email, gender, dob, pob, religion, nationality, mother_tng, blood_group, BformNo, f_name, f_contact, f_cnic, f_email, qualification, occupation, company, designation, m_name, m_contact, m_cnic, m_email, m_qualification, m_occupation, m_company, m_designation, g_name, g_contact, g_cnic, g_email, g_qualification, g_occupation, g_company, g_designation, curr_addr, perm_addr, country, state, district, city, area, postal_code, prev_inst, prev_class, prev_inst_addr, leaving_reason, username, password, role, status) => {
         // TODO API CALL
-        const response = await fetch(`/api/auth/register-student`, {
-        // const response = await fetch(`${host}/api/auth/register-student`, {
+        const response = await fetch(`${host}/api/auth/register-student`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,8 +43,7 @@ const GlobalState = (props) => {
 
     const getUserStudent = async (std_id) => {
         // TODO API CALL
-        const response = await fetch(`/api/auth/get-user-student`, {
-        // const response = await fetch(`${host}/api/auth/get-user-student`, {
+        const response = await fetch(`${host}/api/auth/get-user-student`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

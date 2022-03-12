@@ -3,7 +3,8 @@ import districtContext from './districtContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
+
 
     const districtInitial = [ ]
     const [district, setdistrict] = useState(districtInitial)
@@ -12,8 +13,7 @@ const GlobalState = (props) => {
 
     const getdistrict = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/district//get-district`, {
-        // const response = await fetch(`${host}/api/district//get-district`, {
+        const response = await fetch(`${host}/api/district//get-district`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +26,7 @@ const GlobalState = (props) => {
 
     const adddistrict = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/district/add-district`, {
-        // const response = await fetch(`${host}/api/district/add-district`, {
+        const response = await fetch(`${host}/api/district/add-district`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +41,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updatedistrict = async (id, value, label, name) => {
-        const response = await fetch(`/api/district/update-district`, {
-        // const response = await fetch(`${host}/api/district/update-district`, {
+        const response = await fetch(`${host}/api/district/update-district`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +68,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletedistrict = async (id) => {
-        const response = await fetch(`/api/district//delete-district`, {
-        // const response = await fetch(`${host}/api/district//delete-district`, {
+        const response = await fetch(`${host}/api/district//delete-district`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

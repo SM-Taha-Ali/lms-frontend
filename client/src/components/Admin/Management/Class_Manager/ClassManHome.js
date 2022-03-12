@@ -19,7 +19,7 @@ const ClassManHome = () => {
                 {batch.map((bat)=>{
                     return <BatchCard bat={bat}/>
                 })}
-                <div className="col-xl-3 col-lg-4 col-md-6">
+                <div className="col-xl-3 col-lg-4 col-md-6 py-2 d-flex flex-row justify-content-center">
                     <Link aria-current="page" to="/admin/management/adbatch/classmanage">
                         <div className="add_card">
                             <div className='icon_wrapper'>

@@ -5,13 +5,12 @@ import "../../Stylesheets/Profile.css"
 const ProfileCard = (props) => {
 
     const { user } = props
-    console.log(user)
 
     return (
         <div className='col-xl-3 col-lg-4 col-md-6 col-sm-12 p-3'>
             <div className="profile_card shadow">
                 <div className="profile_img_container text-center">
-                    <img src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="" className="profile_img" />
+                    <img src='/images/student_avatar.png' alt="" className="profile_img" />
                 </div>
                 <h3 className='text-center'>{user.name}</h3>
                 <div className="profile_card_body">
@@ -30,7 +29,7 @@ const ProfileCard = (props) => {
                 </div>
                 <div className="profile_card_footer">
                     <Link
-                        to='/admin/management/adprofile/profiledesc'
+                        to='/admin/management/adprofile/profiledescstd'
                         state={{ user: user }}
                     >
                         <button className="btn btn_dark_blue text-white"> <i className="fad fa-eye me-2"></i>View Profile</button>

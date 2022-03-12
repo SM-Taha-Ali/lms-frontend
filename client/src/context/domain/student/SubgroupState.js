@@ -3,7 +3,7 @@ import subgroupContext from './subgroupContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const subgroupInitial = [ ]
     const [subgroup, setsubgroup] = useState(subgroupInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getsubgroup = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/dsubgroup/get-dsubgroup`, {
-        // const response = await fetch(`${host}/api/dsubgroup/get-dsubgroup`, {
+        const response = await fetch(`${host}/api/dsubgroup/get-dsubgroup`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +25,7 @@ const GlobalState = (props) => {
 
     const addsubgroup = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/dsubgroup/add-dsubgroup`, {
-        // const response = await fetch(`${host}/api/dsubgroup/add-dsubgroup`, {
+        const response = await fetch(`${host}/api/dsubgroup/add-dsubgroup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +40,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updatesubgroup = async (id, value, label, name) => {
-        const response = await fetch(`/api/dsubgroup/update-dsubgroup`, {
-        // const response = await fetch(`${host}/api/dsubgroup/update-dsubgroup`, {
+        const response = await fetch(`${host}/api/dsubgroup/update-dsubgroup`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +67,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletesubgroup = async (id) => {
-        const response = await fetch(`/api/dsubgroup/delete-dsubgroup`, {
-        // const response = await fetch(`${host}/api/dsubgroup/delete-dsubgroup`, {
+        const response = await fetch(`${host}/api/dsubgroup/delete-dsubgroup`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

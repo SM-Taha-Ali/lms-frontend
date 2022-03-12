@@ -3,7 +3,7 @@ import areaContext from './areaContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const areaInitial = [ ]
     const [area, setarea] = useState(areaInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getarea = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/area//get-area`, {
-        // const response = await fetch(`${host}/api/area//get-area`, {
+        const response = await fetch(`${host}/api/area//get-area`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +25,7 @@ const GlobalState = (props) => {
 
     const addarea = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/area/add-area`, {
-        // const response = await fetch(`${host}/api/area/add-area`, {
+        const response = await fetch(`${host}/api/area/add-area`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +40,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updatearea = async (id, value, label, name) => {
-        const response = await fetch(`/api/area/update-area`, {
-        // const response = await fetch(`${host}/api/area/update-area`, {
+        const response = await fetch(`${host}/api/area/update-area`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +67,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletearea = async (id) => {
-        const response = await fetch(`/api/area//delete-area`, {
-        // const response = await fetch(`${host}/api/area//delete-area`, {
+        const response = await fetch(`${host}/api/area//delete-area`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

@@ -8,7 +8,7 @@ const ProfileCard = (props) => {
         <div className='col-xl-3 col-lg-4 col-md-6 col-sm-12 p-3'>
             <div className="profile_card shadow">
                 <div className="profile_img_container text-center">
-                    <img src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="" className="profile_img" />
+                    <img src='/images/profile_avatar.png' alt="" className="profile_img" />
                 </div>
                 <h3 className='text-center'>{user.name}</h3>
                 <div className="profile_card_body">

@@ -3,7 +3,7 @@ import groupContext from './groupContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const groupInitial = [ ]
     const [group, setgroup] = useState(groupInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getgroup = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/dgroup/get-dgroup`, {
-        // const response = await fetch(`${host}/api/dgroup/get-dgroup`, {
+        const response = await fetch(`${host}/api/dgroup/get-dgroup`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +25,7 @@ const GlobalState = (props) => {
 
     const addgroup = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/dgroup/add-dgroup`, {
-        // const response = await fetch(`${host}/api/dgroup/add-dgroup`, {
+        const response = await fetch(`${host}/api/dgroup/add-dgroup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +40,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updategroup = async (id, value, label, name) => {
-        const response = await fetch(`/api/dgroup/update-dgroup`, {
-        // const response = await fetch(`${host}/api/dgroup/update-dgroup`, {
+        const response = await fetch(`${host}/api/dgroup/update-dgroup`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +67,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletegroup = async (id) => {
-        const response = await fetch(`/api/dgroup/delete-dgroup`, {
-        // const response = await fetch(`${host}/api/dgroup/delete-dgroup`, {
+        const response = await fetch(`${host}/api/dgroup/delete-dgroup`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

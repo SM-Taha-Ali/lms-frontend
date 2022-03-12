@@ -3,7 +3,7 @@ import feeContext from './feeContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const apiUrl = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const feeInitial = [ ]
     const [fee, setfee] = useState(feeInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getfee = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/feedomain/get-feedomain`, {
-        // const response = await fetch(`${host}/api/feedomain/get-feedomain`, {
+        const response = await fetch(`${apiUrl}/api/feedomain/get-feedomain`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +25,7 @@ const GlobalState = (props) => {
 
     const addfee = async (value, label, name, type) => {
         // TODO API CALL
-        const response = await fetch(`/api/feedomain/add-feedomain`, {
-        // const response = await fetch(`${host}/api/feedomain/add-feedomain`, {
+        const response = await fetch(`${apiUrl}/api/feedomain/add-feedomain`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +40,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updatefee = async (id, value, label, name, type) => {
-        const response = await fetch(`/api/feedomain/update-feedomain`, {
-        // const response = await fetch(`${host}/api/feedomain/update-feedomain`, {
+        const response = await fetch(`${apiUrl}/api/feedomain/update-feedomain`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -71,8 +68,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletefee = async (id) => {
-        const response = await fetch(`/api/feedomain/delete-feedomain`, {
-        // const response = await fetch(`${host}/api/feedomain/delete-feedomain`, {
+        const response = await fetch(`${apiUrl}/api/feedomain/delete-feedomain`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

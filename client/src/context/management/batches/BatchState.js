@@ -3,7 +3,7 @@ import batchContext from './batchContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const batchInitial = [ ]
     const [batch, setbatch] = useState(batchInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getbatch = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/batches/get-batches`, {
-        // const response = await fetch(`${host}/api/batches/get-batches`, {
+        const response = await fetch(`${host}/api/batches/get-batches`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +25,7 @@ const GlobalState = (props) => {
 
     const addbatch = async (batchname, subteafees, students, start_date, end_date) => {
         // TODO API CALL
-        const response = await fetch(`/api/batches/add-batches`, {
-        // const response = await fetch(`${host}/api/batches/add-batches`, {
+        const response = await fetch(`${host}/api/batches/add-batches`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +40,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updatebatch = async (id, batchname, subteafees, students, start_date, end_date) => {
-        const response = await fetch(`/api/batches/update-batches`, {
-        // const response = await fetch(`${host}/api/batches/update-batches`, {
+        const response = await fetch(`${host}/api/batches/update-batches`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -72,8 +69,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletebatch = async (id) => {
-        const response = await fetch(`/api/batches/delete-batches`, {
-        // const response = await fetch(`${host}/api/batches/delete-batches`, {
+        const response = await fetch(`${host}/api/batches/delete-batches`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

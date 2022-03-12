@@ -5,8 +5,6 @@ const GlobalState = (props) => {
 
     const apiUrl = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
-    const host = "http://localhost:5000"
-
     const bloodgrpInitial = [ ]
     const [bloodgrp, setbloodgrp] = useState(bloodgrpInitial)
 
@@ -15,7 +13,6 @@ const GlobalState = (props) => {
     const getbloodgrp = async () => {
         // TODO API CALL
         const response = await fetch(`${apiUrl}/api/bloodgroup/get-bloodgroup`, {
-        // const response = await fetch(`${host}/api/bloodgroup/get-bloodgroup`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,7 +25,6 @@ const GlobalState = (props) => {
 
     const addbloodgrp = async (value, label, name) => {
         // TODO API CALL
-        // const response = await fetch(`/api/bloodgroup/add-bloodgroup`, {
         const response = await fetch(`${apiUrl}/api/bloodgroup/add-bloodgroup`, {
             method: 'POST',
             headers: {
@@ -44,7 +40,6 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updatebloodgrp = async (id, value, label, name) => {
-        // const response = await fetch(`/api/bloodgroup/update-bloodgroup`, {
         const response = await fetch(`${apiUrl}/api/bloodgroup/update-bloodgroup`, {
             method: 'PUT',
             headers: {
@@ -72,7 +67,6 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletebloodgrp = async (id) => {
-        // const response = await fetch(`/api/bloodgroup/delete-bloodgroup`, {
         const response = await fetch(`${apiUrl}/api/bloodgroup/delete-bloodgroup`, {
             method: 'DELETE',
             headers: {

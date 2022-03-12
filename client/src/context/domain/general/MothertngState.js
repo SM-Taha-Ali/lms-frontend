@@ -3,7 +3,8 @@ import mothertngContext from './mothertngContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
+
 
     const mothertngInitial = [ ]
     const [mothertng, setmothertng] = useState(mothertngInitial)
@@ -12,8 +13,7 @@ const GlobalState = (props) => {
 
     const getmothertng = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/mother_tng/get-mother_tng`, {
-        // const response = await fetch(`${host}/api/mother_tng/get-mother_tng`, {
+        const response = await fetch(`${host}/api/mother_tng/get-mother_tng`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +26,7 @@ const GlobalState = (props) => {
 
     const addmothertng = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/mother_tng/add-mother_tng`, {
-        // const response = await fetch(`${host}/api/mother_tng/add-mother_tng`, {
+        const response = await fetch(`${host}/api/mother_tng/add-mother_tng`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +41,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updatemothertng = async (id, value, label, name) => {
-        const response = await fetch(`/api/mother_tng/update-mother_tng`, {
-        // const response = await fetch(`${host}/api/mother_tng/update-mother_tng`, {
+        const response = await fetch(`${host}/api/mother_tng/update-mother_tng`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +68,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletemothertng = async (id) => {
-        const response = await fetch(`/api/mother_tng/delete-mother_tng`, {
-        // const response = await fetch(`${host}/api/mother_tng/delete-mother_tng`, {
+        const response = await fetch(`${host}/api/mother_tng/delete-mother_tng`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

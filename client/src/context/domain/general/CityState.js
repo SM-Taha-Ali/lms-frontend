@@ -3,7 +3,7 @@ import cityContext from './cityContext';
 
 const GlobalState = (props) => {
 
-    const host = "http://localhost:5000"
+    const host = process.env.NODE_ENV === 'production' ? "" : "http://localhost:5000";
 
     const cityInitial = [ ]
     const [city, setcity] = useState(cityInitial)
@@ -12,8 +12,7 @@ const GlobalState = (props) => {
 
     const getcity = async () => {
         // TODO API CALL
-        const response = await fetch(`/api/city/get-city`, {
-        // const response = await fetch(`${host}/api/city/get-city`, {
+        const response = await fetch(`${host}/api/city/get-city`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +25,7 @@ const GlobalState = (props) => {
 
     const addcity = async (value, label, name) => {
         // TODO API CALL
-        const response = await fetch(`/api/city/add-city`, {
-        // const response = await fetch(`${host}/api/city/add-city`, {
+        const response = await fetch(`${host}/api/city/add-city`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,8 +40,7 @@ const GlobalState = (props) => {
     //  Update Quantity
 
     const updatecity = async (id, value, label, name) => {
-        const response = await fetch(`/api/city/update-city`, {
-        // const response = await fetch(`${host}/api/city/update-city`, {
+        const response = await fetch(`${host}/api/city/update-city`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,8 +67,7 @@ const GlobalState = (props) => {
     // Delete item
 
     const deletecity = async (id) => {
-        const response = await fetch(`/api/city/delete-city`, {
-        // const response = await fetch(`${host}/api/city/delete-city`, {
+        const response = await fetch(`${host}/api/city/delete-city`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
