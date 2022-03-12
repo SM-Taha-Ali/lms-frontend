@@ -21,7 +21,7 @@ async function addsubBind(req, res) {
     }
     catch (error) {
         console.log(error);
-        res.status(500).send(success, error)
+        res.status(500).send(error)
     }
 
 }
