@@ -41,7 +41,7 @@ const GlobalState = (props) => {
 
     const getsubOnlyBind = async ( clasS, group, subgroup) => {
         // TODO API CALL
-        const response = await fetch(`/api/subBind/add-subBind`, {
+        const response = await fetch(`/api/subBind/get-subBind`, {
         // const response = await fetch(`${host}/api/subBind/get-subOnlyBind`, {
             method: 'POST',
             headers: {
